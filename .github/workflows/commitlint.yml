@@ -1,0 +1,24 @@
+name: Commitlint Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --ignore-scripts
+
+      - name: Run Commitlint
+        run: pnpm commitlint --from origin/main

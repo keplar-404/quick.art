@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "biome lint --write",
 		"format": "biome format --write",
-		"check": "biome check --write"
+		"check": "biome check --write",
+		"release": "release-it"
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.1.2",
@@ -24,17 +25,48 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@commitlint/cli": "^19.8.0",
+		"@commitlint/config-conventional": "^19.8.0",
+		"@release-it/conventional-changelog": "^10.0.0",
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"release-it": "^18.1.2",
+		"release-it-pnpm": "^4.6.4",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@biomejs/biome",
-			"sharp"
-		]
+		"onlyBuiltDependencies": ["@biomejs/biome", "sharp"]
+	},
+	"release-it": {
+		"git": {
+			"commitMessage": "chore: release v${version}"
+		},
+		"github": {
+			"release": true
+		},
+		"npm": {
+			"publish": false
+		},
+		"plugins": {
+			"@release-it/conventional-changelog": {
+				"infile": "CHANGELOG.md",
+				"preset": {
+					"name": "conventionalcommits",
+					"types": [
+						{ "type": "feat", "section": "🚀 Features" },
+						{ "type": "fix", "section": "🐛 Bug Fixes" },
+						{ "type": "docs", "section": "📚 Documentation" },
+						{ "type": "refactor", "section": "♻️ Code Refactoring" },
+						{ "type": "perf", "section": "⚡ Performance Improvements" },
+						{ "type": "revert", "section": "⏪ Reverts" },
+						{ "type": "style", "section": "🎨 Styles" },
+						{ "type": "test", "section": "✅ Tests" }
+					]
+				}
+			}
+		}
 	}
 }
