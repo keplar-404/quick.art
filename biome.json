@@ -1,0 +1,71 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": [".gitingore", "README.md", "node_modules"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noRedundantAlt": "warn",
+				"noSvgWithoutTitle": "warn",
+				"useAltText": "error"
+			},
+			"correctness": {
+				"noChildrenProp": "error",
+				"noConstAssign": "error",
+				"noUnusedImports": "warn",
+				"noUnusedLabels": "error",
+				"noUnusedVariables": "error",
+				"noVoidTypeReturn": "warn",
+				"useHookAtTopLevel": "error",
+				"useExhaustiveDependencies": "warn"
+			},
+			"suspicious": {
+				"noConsole": "warn",
+				"noDoubleEquals": "error",
+				"noDuplicateAtImportRules": "error",
+				"noDuplicateCase": "error"
+			},
+			"performance": {
+				"noAccumulatingSpread": "error",
+				"noBarrelFile": "error",
+				"noDelete": "error",
+				"noReExportAll": "error"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "error",
+				"noGlobalEval": "error",
+				"noDangerouslySetInnerHtmlWithChildren": "error"
+			},
+			"style": {
+				"noNonNullAssertion": "off",
+				"noParameterAssign": "error",
+				"noUnusedTemplateLiteral": "warn",
+				"noUselessElse": "off",
+				"noVar": "error",
+				"useConst": "info",
+				"useWhile": "error"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	}
+}
